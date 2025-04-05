@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { submitContactForm } from './actions'
 import SocialButton from './components/SocialButton'
+import ScrollToTop from './components/ScrollToTop'
 import { socials } from './data/socials'
 
 export default function Home() {
@@ -25,7 +26,8 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <ScrollToTop />
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
         <div className="space-y-8">
