@@ -1,24 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Website
+
+A modern, responsive personal website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- Modern, responsive design
+- Dark mode support
+- Contact form
+- Social media links
+- Projects showcase (coming soon)
+- Smooth scroll-to-top button
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+```bash
+git clone https://github.com/debiprasad/personal-website.git
+cd personal-website
+```
 
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This website is optimized for deployment on [Vercel](https://vercel.com). To deploy:
+
+1. Push your code to GitHub
+2. Visit [Vercel](https://vercel.com)
+3. Import your GitHub repository
+4. Click "Deploy"
+
+Vercel will automatically detect that this is a Next.js project and configure the build settings.
+
+### Alternative Deployment Options
+
+1. **Static Export**
+   ```bash
+   npm run build
+   ```
+   This will create a static version in the `out` directory that you can deploy to any static hosting service.
+
+2. **Docker**
+   ```bash
+   # Build the container
+   docker build -t personal-website .
+   
+   # Run the container
+   docker run -p 3000:3000 personal-website
+   ```
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [React](https://reactjs.org)
 
 ## Learn More
 
