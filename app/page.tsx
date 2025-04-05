@@ -3,6 +3,8 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { submitContactForm } from './actions'
+import SocialButton from './components/SocialButton'
+import { socials } from './data/socials'
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -33,6 +35,11 @@ export default function Home() {
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             A passionate fullstack developer crafting elegant solutions
           </p>
+          <div className="flex justify-center gap-4 mb-6">
+            {socials.map((social) => (
+              <SocialButton key={social.name} social={social} />
+            ))}
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="#projects"
