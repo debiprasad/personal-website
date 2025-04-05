@@ -3,8 +3,6 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { submitContactForm } from './actions'
-import ProjectCard from './components/ProjectCard'
-import { projects } from './data/projects'
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -55,19 +53,13 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="min-h-screen py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-              Featured Projects
+              Projects
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Here are some of the projects I&apos;ve worked on. Each project showcases different skills and technologies.
+              Coming Soon
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
           </div>
         </div>
       </section>
