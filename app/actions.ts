@@ -1,10 +1,14 @@
 'use server'
 
+import { Resend } from 'resend'
+
 interface ContactFormData {
   name: string;
   email: string;
   message: string;
 }
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function submitContactForm(formData: FormData) {
   const data: ContactFormData = {
@@ -27,9 +31,22 @@ export async function submitContactForm(formData: FormData) {
   }
 
   try {
-    // Here we'll add email sending logic later
-    // For now, just log it
-    console.log('Form submitted:', data)
+    // Send email notification
+    await resend.emails.send({
+      from: 'Contact Form <onboarding@resend.dev>',
+      to: process.env.NOTIFICATION_EMAIL as string,
+      replyTo: data.email,
+      subject: `New Contact Form Message from ${data.name}`,
+      text: `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`,
+      html: `
+        <h2>New Contact Form Message</h2>
+        <p><strong>From:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <br/>
+        <p><strong>Message:</strong></p>
+        <p>${data.message.replace(/\n/g, '<br/>')}</p>
+      `
+    })
     
     return {
       success: true,
