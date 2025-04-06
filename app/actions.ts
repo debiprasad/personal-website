@@ -33,7 +33,7 @@ export async function submitContactForm(formData: FormData) {
   try {
     // Send email notification
     await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>',
+      from: 'Debiprasad.dev Contact Form <no-reply@debiprasad.dev>',
       to: process.env.NOTIFICATION_EMAIL as string,
       replyTo: data.email,
       subject: `New Contact Form Message from ${data.name}`,
